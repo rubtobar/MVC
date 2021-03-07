@@ -7,16 +7,19 @@ using System.Threading.Tasks;
 
 namespace MVC.Models
 {
-    public class Clients
+    public class Reservation
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Client { get; set; }
 
         [DataType(DataType.Date)]
         [Display(Name = "Fecha Nacimiento")]
-        public DateTime FechaNacimiento { get; set; }
+        public DateTime FechaReserva { get; set; }
 
-        public virtual ICollection<Reservation> Reservations { get; set; }
+        [Column(TypeName = "money")]
+        public decimal Prince { get; set; }
+
+        public virtual ICollection<Hotel> Hotels { get; set; }
     }
 }
