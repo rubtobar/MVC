@@ -32,6 +32,16 @@ namespace MVC
                 }
             }
 
+
+            Notificador notif = new Notificador();
+
+            Notificaciones notificaciones = new Notificaciones();
+
+            notificaciones.Subscribe(notif);
+
+            notif.TrackMensaje(new Mensaje { Texto = "pito" });
+
+
             host.Run();
         }
 

@@ -22,7 +22,7 @@ namespace MVC.Controllers
         // GET: Countries
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Country.ToListAsync());
+            return View(await _context.Countries.ToListAsync());
         }
 
         // GET: Countries/Details/5
@@ -33,7 +33,7 @@ namespace MVC.Controllers
                 return NotFound();
             }
 
-            var country = await _context.Country
+            var country = await _context.Countries
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (country == null)
             {
@@ -73,7 +73,7 @@ namespace MVC.Controllers
                 return NotFound();
             }
 
-            var country = await _context.Country.FindAsync(id);
+            var country = await _context.Countries.FindAsync(id);
             if (country == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace MVC.Controllers
                 return NotFound();
             }
 
-            var country = await _context.Country
+            var country = await _context.Countries
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (country == null)
             {
@@ -139,15 +139,15 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var country = await _context.Country.FindAsync(id);
-            _context.Country.Remove(country);
+            var country = await _context.Countries.FindAsync(id);
+            _context.Countries.Remove(country);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CountryExists(int id)
         {
-            return _context.Country.Any(e => e.Id == id);
+            return _context.Countries.Any(e => e.Id == id);
         }
     }
 }

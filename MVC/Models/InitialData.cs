@@ -29,7 +29,7 @@ namespace MVC.Models
                         FechaNacimiento = DateTime.Parse("1989-2-12")
                     }
                 );
-                context.Country.AddRange(
+                context.Countries.AddRange(
                     new Country
                     {
                         Name = "When Harry Met Sally",
